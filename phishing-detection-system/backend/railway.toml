@@ -1,6 +1,6 @@
 [build]
 builder = "RAILPACK"
-buildCommand = "npm install && pip install -r ml_service/requirements.txt"
+buildCommand = "npm install && pip3 install -r ml_service/requirements.txt"
 
 [deploy]
 startCommand = "uvicorn ml_service.predict:app --host 0.0.0.0 --port 8000 & node server.js"
@@ -10,6 +10,3 @@ restartPolicyMaxRetries = 10
 [deploy.healthcheck]
 path = "/api/health"
 timeout = 300
-
-[build.nixpacks]
-installCommand = "npm install"
