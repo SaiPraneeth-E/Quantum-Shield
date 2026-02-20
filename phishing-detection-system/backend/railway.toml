@@ -1,12 +1,21 @@
 [build]
 builder = "RAILPACK"
-buildCommand = "npm install"
+buildCommand = "npm install && pip install -r ml_service/requirements.txt"
 
 [deploy]
-startCommand = "node server.js"
+startCommand = "uvicorn ml_service.predict:app --host 0.0.0.0 --port 8000 & node server.js"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
 [deploy.healthcheck]
 path = "/api/health"
 timeout = 300
+```
+
+Place this in `phishing-detection-system/backend/` and push to GitHub.
+
+---
+
+### Also make sure your Railway environment variables include:
+```
+ML_SERVICE_URL=http://localhost:8000
