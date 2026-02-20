@@ -10,3 +10,6 @@ restartPolicyMaxRetries = 10
 [deploy.healthcheck]
 path = "/api/health"
 timeout = 300
+
+[build.nixpacks]
+installCommand = "npm install"
