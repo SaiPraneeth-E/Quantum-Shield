@@ -10,12 +10,3 @@ restartPolicyMaxRetries = 10
 [deploy.healthcheck]
 path = "/api/health"
 timeout = 300
-```
-
-Place this in `phishing-detection-system/backend/` and push to GitHub.
-
----
-
-### Also make sure your Railway environment variables include:
-```
-ML_SERVICE_URL=http://localhost:8000
