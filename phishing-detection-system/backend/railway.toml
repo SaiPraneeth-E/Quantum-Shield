@@ -1,6 +1,6 @@
 [build]
 builder = "RAILPACK"
-buildCommand = "apt-get update && apt-get install -y python3 python3-pip python3-dev build-essential && npm install && chmod -R +x node_modules/.bin && npm rebuild bcrypt --build-from-source && python3 -m pip install uvicorn fastapi scikit-learn numpy joblib pydantic qiskit qiskit-machine-learning scipy --break-system-packages"
+buildCommand = "npm install && npm rebuild bcrypt --build-from-source"
 
 [deploy]
 startCommand = "node server.js"
